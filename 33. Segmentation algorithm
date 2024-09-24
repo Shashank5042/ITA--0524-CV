@@ -1,0 +1,9 @@
+import cv2
+import matplotlib.pyplot as plt
+
+img = cv2.imread(r'C:\Users\deves\Downloads\ITA0524 - CV\output_image.jpeg', 0)  # Read image in grayscale
+_, thresh = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)  # Apply thresholding
+segmented = cv2.bitwise_and(img, img, mask=thresh)  # Apply mask for segmentation
+plt.imshow(segmented, cmap='gray')  # Display segmented image
+plt.axis('off')  # Turn off axis
+plt.show()  # Show image
